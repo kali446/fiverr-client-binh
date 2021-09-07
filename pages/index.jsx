@@ -20,6 +20,8 @@ const Home = ({ homeData, testimonials, blogPosts }) => {
     title: homeData.pageTitle,
   };
 
+  console.log('posts', blogPosts)
+
   return (
     <Layout data={seoObject}>
       <Hero />

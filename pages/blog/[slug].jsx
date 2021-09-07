@@ -8,7 +8,6 @@ import {
   getSingleBlogPost,
   getRelatedBlogPosts,
 } from "../../helpers/api-utils";
-import { API_URL } from "../../config";
 
 const SinglePost = ({ singleBlog, relatedBlogs }) => {
   const post = singleBlog[0];
@@ -60,7 +59,7 @@ const SinglePost = ({ singleBlog, relatedBlogs }) => {
               <img
                 loading="lazy"
                 class="img-fluid"
-                src={`${API_URL + post.thumbnail.url}`}
+                src={`${post.thumbnail.url}`}
                 alt={post.thumbnail.name}
               />
             </div>
@@ -73,17 +72,7 @@ const SinglePost = ({ singleBlog, relatedBlogs }) => {
               <div class="col-lg-9">
                 {/* rendering the markdown content */}
                 <div className="richText--content content">
-                  <ReactMarkdown
-                    source={post.content}
-                    escapeHtml={false}
-                    transformImageUri={(uri) =>
-                      uri.startsWith("http")
-                        ? uri
-                        : `${process.env.NEXT_PUBLIC_REACT_APP_IMAGE_BASE_URL}${uri}`
-                    }
-                  >
-                    {post.content}
-                  </ReactMarkdown>
+                  <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
               </div>
             </div>
@@ -115,9 +104,7 @@ const SinglePost = ({ singleBlog, relatedBlogs }) => {
                           <a class="card-image">
                             <img
                               loading="lazy"
-                              src={`${
-                                API_URL + blog.thumbnail.formats.medium.url
-                              }`}
+                              src={`${blog.thumbnail.formats.medium.url}`}
                               class="card-img rounded-0"
                               alt={blog.thumbnail.formats.medium.name}
                             />

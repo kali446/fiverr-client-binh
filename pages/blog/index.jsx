@@ -49,9 +49,7 @@ const blog = ({ blogData, blogs, page, total }) => {
                               <a className="card-image">
                                 <img
                                   loading="lazy"
-                                  src={`${
-                                    API_URL + blog.thumbnail.formats.medium.url
-                                  }`}
+                                  src={`${blog.thumbnail.formats.medium.url}`}
                                   className="card-img rounded-0"
                                   alt="blog-post"
                                 />

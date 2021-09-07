@@ -1,7 +1,6 @@
 import React from "react";
 import readingTime from "reading-time";
 import Moment from "react-moment";
-import { API_URL } from "../../config";
 
 const BlogSection = ({ blogPosts }) => {
   return (
@@ -33,7 +32,7 @@ const BlogSection = ({ blogPosts }) => {
                         <a href="blog-single.html" className="card-image">
                           <img
                             loading="lazy"
-                            src={API_URL + blog.thumbnail.formats.large.url}
+                            src={blog.thumbnail.formats.large.url}
                             className="card-img rounded-0"
                             alt={blog.thumbnail.formats.large.name}
                           />
@@ -74,7 +73,7 @@ const BlogSection = ({ blogPosts }) => {
                     <a href="blog-single.html" className="card-image">
                       <img
                         loading="lazy"
-                        src={API_URL + blog.thumbnail.formats.medium.url}
+                        src={blog.thumbnail.formats.medium.url}
                         className="card-img rounded-0"
                         alt={blog.thumbnail.name}
                       />

@@ -7,7 +7,6 @@ import {
   getTeamPageData,
   getAllCareers,
 } from "../helpers/api-utils";
-import { API_URL } from "../config";
 
 const Team = ({ teamData, teamMembers, careers }) => {
   const seoObject = {
@@ -46,7 +45,7 @@ const Team = ({ teamData, teamMembers, careers }) => {
                           <img
                             loading="lazy"
                             className="img-fluid"
-                            src={API_URL + member.image.url}
+                            src={member.image.url}
                             alt={member.image.name}
                           />
 

@@ -7,7 +7,6 @@ import {
   getAllTestimonials,
   getAllTeamMembers,
 } from "../helpers/api-utils";
-import { API_URL } from "../config";
 
 const AboutUs = ({ aboutusData, testimonials, teamMembers }) => {
   const seoObject = {
@@ -277,7 +276,7 @@ const AboutUs = ({ aboutusData, testimonials, teamMembers }) => {
                           <img
                             loading="lazy"
                             className="img-fluid"
-                            src={API_URL + member.image.url}
+                            src={member.image.url}
                             alt={member.image.name}
                           />
 
