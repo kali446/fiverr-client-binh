@@ -1,0 +1,24 @@
+/* pagination */
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-pagination .button--prev {
+  margin-right: 0.7rem;
+}
+.custom-pagination .button--next {
+  margin-left: 0.7rem;
+}
+
+/* rich text */
+.richText--content img {
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  margin: 1.5rem 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
