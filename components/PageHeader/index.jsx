@@ -13,6 +13,7 @@ const PageHeader = ({
               <p className="mb-3 font-weight-500 has-anim fade">{name}</p>
               <h2 className="text-white font-weight-500 has-anim fade anim-delay-1">
                 {title}
+                <span class="text-primary">.</span>
               </h2>
             </div>
           </div>

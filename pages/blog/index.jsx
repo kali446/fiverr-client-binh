@@ -35,48 +35,55 @@ const blog = ({ blogData, blogs, page, total }) => {
                 {blogs.map((blog) => {
                   const stats = readingTime(blog.content);
 
+                  // random bg color
+                  const bgColors = [
+                    "#c11c3b",
+                    "#0a11a8",
+                    "#002306",
+                    "#d59801",
+                    "#296e4a",
+                  ];
+                  const randomColor = Math.floor(
+                    Math.random() * bgColors.length
+                  );
+
                   return (
-                    <div key={blog.id} className="col-lg-12">
-                      <article className="card blog-card blog-card-horizontal border-0 rounded-0 has-anim">
+                    <div class="col-lg-4 col-md-6">
+                      <article class="card blog-card border-0 rounded-0 has-anim">
                         <div
-                          className="card-background"
-                          style={{ backgroundColor: "#d59801" }}
+                          class="card-background"
+                          style={{
+                            backgroundColor: `${bgColors[randomColor]}`,
+                          }}
                         ></div>
 
-                        <div className="row justify-content-center align-items-center">
-                          <div className="col-lg-6">
-                            <Link href={`/blog/${blog.Slug}`}>
-                              <a className="card-image">
-                                <img
-                                  loading="lazy"
-                                  src={`${blog.thumbnail.formats.medium.url}`}
-                                  className="card-img rounded-0"
-                                  alt="blog-post"
-                                />
-                              </a>
+                        <a href="blog-single.html" class="card-image">
+                          <img
+                            loading="lazy"
+                            src={`${blog.thumbnail.formats.medium.url}`}
+                            class="card-img rounded-0 custom-blogImageSize"
+                            alt={`${blog.thumbnail.formats.medium.name}`}
+                          />
+                        </a>
+
+                        <div class="card-body p-0 mt-4">
+                          <span class="card-tag mb-3">
+                            <Link href={`#`}>
+                              <a>{blog.category.name}</a>
                             </Link>
-                          </div>
-                          <div className="col-lg-6 mt-4 mt-sm-5 mt-lg-0">
-                            <div className="card-body p-0 p-lg-4">
-                              <span className="card-tag mb-3">
-                                <Link href={`#`}>
-                                  <a>{blog.category.name}</a>
-                                </Link>
-                              </span>
+                          </span>
 
-                              <h3 className="card-title">
-                                <Link href={`/blog/${blog.Slug}`}>
-                                  <a>{blog.title}</a>
-                                </Link>
-                              </h3>
-                              <p className="card-text">{blog.excerpt}</p>
+                          <h4 class="card-title">
+                            <Link href={`/blog/${blog.Slug}`}>
+                              <a>{blog.title}</a>
+                            </Link>
+                          </h4>
+                          <p class="card-text">{blog.excerpt}</p>
 
-                              <p className="card-meta mt-3">
-                                <Moment format="ll">{blog.created_at}</Moment>
-                                <span className="mx-2">—</span> {stats.text}
-                              </p>
-                            </div>
-                          </div>
+                          <p class="card-meta mt-3">
+                            <Moment format="ll">{blog.created_at}</Moment>{" "}
+                            <span class="mx-2">—</span> {stats.text}
+                          </p>
                         </div>
                       </article>
                     </div>

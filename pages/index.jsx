@@ -20,8 +20,6 @@ const Home = ({ homeData, testimonials, blogPosts }) => {
     title: homeData.pageTitle,
   };
 
-  console.log('posts', blogPosts)
-
   return (
     <Layout data={seoObject}>
       <Hero />
@@ -45,7 +43,7 @@ export default Home;
 export async function getStaticProps() {
   const data = await getHomePageData();
   const testimonials = await getAllTestimonials();
-  const blogPosts = await getRelatedBlogPosts(4);
+  const blogPosts = await getRelatedBlogPosts(3);
 
   return {
     props: {

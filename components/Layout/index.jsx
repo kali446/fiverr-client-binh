@@ -3,7 +3,6 @@ import Head from "next/head";
 import Navigation from "../Navigation";
 import Footer from "../Footer";
 import { getGlobalData } from "../../helpers/api-utils";
-import { API_URL } from "../../config";
 
 const Layout = ({ children, data }) => {
   const [globalData, setGlobalData] = useState(null);
@@ -43,11 +42,7 @@ const Layout = ({ children, data }) => {
           }
         />
         {/* favicon */}
-        <link
-          rel="icon"
-          type="image/png"
-          href={API_URL + globalData?.favicon.url}
-        />
+        <link rel="icon" type="image/png" href={globalData?.favicon.url} />
       </Head>
 
       <Navigation />
