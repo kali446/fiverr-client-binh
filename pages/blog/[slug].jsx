@@ -92,12 +92,20 @@ const SinglePost = ({ singleBlog, relatedBlogs }) => {
                 {filteredRelatedBlogs.map((blog) => {
                   const stats = readingTime(blog.content);
 
+                  // random bg color
+                  const bgColors = ["#c11c3b", "#0a11a8", "#002306"];
+                  const randomColor = Math.floor(
+                    Math.random() * bgColors.length
+                  );
+
                   return (
                     <div key={blog.id} class="col-lg-4 col-md-6">
                       <article class="card blog-card border-0 rounded-0 has-anim fade anim-delay-2">
                         <div
                           class="card-background"
-                          style={{ backgroundColor: "#296e4a" }}
+                          style={{
+                            backgroundColor: `${bgColors[randomColor]}`,
+                          }}
                         ></div>
 
                         <Link href={`/blog/${blog.Slug}`}>
