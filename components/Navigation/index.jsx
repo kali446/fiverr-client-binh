@@ -88,6 +88,11 @@ const Navigation = () => {
                       </a>
                     </li>
                     <li className="nav-item">
+                      <a className="nav-link" href="/services">
+                        Services
+                      </a>
+                    </li>
+                    <li className="nav-item">
                       <a className="nav-link" href="/blog?page=1">
                         Blog
                       </a>
