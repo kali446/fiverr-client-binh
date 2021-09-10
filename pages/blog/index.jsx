@@ -36,13 +36,7 @@ const blog = ({ blogData, blogs, page, total }) => {
                   const stats = readingTime(blog.content);
 
                   // random bg color
-                  const bgColors = [
-                    "#c11c3b",
-                    "#0a11a8",
-                    "#002306",
-                    "#d59801",
-                    "#296e4a",
-                  ];
+                  const bgColors = ["#c11c3b", "#0a11a8", "#002306"];
                   const randomColor = Math.floor(
                     Math.random() * bgColors.length
                   );
@@ -57,14 +51,16 @@ const blog = ({ blogData, blogs, page, total }) => {
                           }}
                         ></div>
 
-                        <a href="blog-single.html" class="card-image">
-                          <img
-                            loading="lazy"
-                            src={`${blog.thumbnail.formats.medium.url}`}
-                            class="card-img rounded-0 custom-blogImageSize"
-                            alt={`${blog.thumbnail.formats.medium.name}`}
-                          />
-                        </a>
+                        <Link href={`/blog/${blog.Slug}`}>
+                          <a class="card-image">
+                            <img
+                              loading="lazy"
+                              src={`${blog.thumbnail.formats.medium.url}`}
+                              class="card-img rounded-0 custom-blogImageSize"
+                              alt={`${blog.thumbnail.formats.medium.name}`}
+                            />
+                          </a>
+                        </Link>
 
                         <div class="card-body p-0 mt-4">
                           <span class="card-tag mb-3">

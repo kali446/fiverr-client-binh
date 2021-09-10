@@ -105,7 +105,7 @@ const SinglePost = ({ singleBlog, relatedBlogs }) => {
                             <img
                               loading="lazy"
                               src={`${blog.thumbnail.formats.medium.url}`}
-                              class="card-img rounded-0"
+                              class="card-img rounded-0 custom-blogImageSize"
                               alt={blog.thumbnail.formats.medium.name}
                             />
                           </a>
