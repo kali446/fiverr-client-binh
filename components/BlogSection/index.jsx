@@ -29,45 +29,90 @@ const BlogSection = ({ blogPosts }) => {
             ];
             const randomColor = Math.floor(Math.random() * bgColors.length);
 
-            return (
-              <div key={blog.id} className="col-lg-4 col-md-6 has-anim fade">
-                <article className="card blog-card border-0 rounded-0">
-                  <div
-                    className="card-background"
-                    style={{ backgroundColor: `${bgColors[randomColor]}` }}
-                  ></div>
+            if (i === 0) {
+              const blog1Stats = readingTime(blog.content);
 
-                  <Link href={`/blog/${blog.Slug}`}>
-                    <a className="card-image">
-                      <img
-                        loading="lazy"
-                        src={blog.thumbnail.formats.medium.url}
-                        className="card-img rounded-0 custom-blogImageSize"
-                        alt={blog.thumbnail.name}
-                      />
-                    </a>
-                  </Link>
+              return (
+                <div key={blog.id} className="col-lg-12 has-anim fade">
+                  <article className="card blog-card blog-card-horizontal border-0 rounded-0">
+                    <div
+                      className="card-background"
+                      style={{ backgroundColor: "#c11c3b" }}
+                    ></div>
 
-                  <div className="card-body p-0 mt-4">
-                    <span className="card-tag mb-3">
-                      <a href="#">{blog.category.name}</a>
-                    </span>
+                    <div className="row justify-content-center align-items-center">
+                      <div className="col-lg-6">
+                        <a href="blog-single.html" className="card-image">
+                          <img
+                            loading="lazy"
+                            src={blog.thumbnail.formats.large.url}
+                            className="card-img rounded-0 custom-blogImageSize"
+                            alt={blog.thumbnail.formats.large.name}
+                          />
+                        </a>
+                      </div>
+                      <div className="col-lg-6 mt-4 mt-sm-5 mt-lg-0">
+                        <div className="card-body p-0 p-lg-4">
+                          <span className="card-tag mb-3">
+                            {blog.category.name}
+                          </span>
 
-                    <h4 className="card-title">
-                      <Link href={`/blog/${blog.Slug}`}>
-                        <a>{blog.title}</a>
-                      </Link>
-                    </h4>
-                    <p className="card-text">{blog.excerpt}</p>
+                          <h3 className="card-title">
+                            <a href="blog-single.html">{blog.title}</a>
+                          </h3>
+                          <p className="card-text">{blog.excerpt}</p>
 
-                    <p className="card-meta mt-3">
-                      <Moment format="ll">{blog.created_at}</Moment>{" "}
-                      <span className="mx-2">—</span> {stats.text}
-                    </p>
-                  </div>
-                </article>
-              </div>
-            );
+                          <p className="card-meta mt-3">
+                            <Moment format="ll">{blog.created_at}</Moment>{" "}
+                            <span className="mx-2">—</span> {blog1Stats.text}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              );
+            } else {
+              return (
+                <div key={blog.id} className="col-lg-4 col-md-6 has-anim fade">
+                  <article className="card blog-card border-0 rounded-0">
+                    <div
+                      className="card-background"
+                      style={{ backgroundColor: `${bgColors[randomColor]}` }}
+                    ></div>
+
+                    <Link href={`/blog/${blog.Slug}`}>
+                      <a className="card-image">
+                        <img
+                          loading="lazy"
+                          src={blog.thumbnail.formats.medium.url}
+                          className="card-img rounded-0 custom-blogImageSize"
+                          alt={blog.thumbnail.name}
+                        />
+                      </a>
+                    </Link>
+
+                    <div className="card-body p-0 mt-4">
+                      <span className="card-tag mb-3">
+                        <a href="#">{blog.category.name}</a>
+                      </span>
+
+                      <h4 className="card-title">
+                        <Link href={`/blog/${blog.Slug}`}>
+                          <a>{blog.title}</a>
+                        </Link>
+                      </h4>
+                      <p className="card-text">{blog.excerpt}</p>
+
+                      <p className="card-meta mt-3">
+                        <Moment format="ll">{blog.created_at}</Moment>{" "}
+                        <span className="mx-2">—</span> {stats.text}
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              );
+            }
           })}
         </div>
       </div>

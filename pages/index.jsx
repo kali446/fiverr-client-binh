@@ -43,7 +43,7 @@ export default Home;
 export async function getStaticProps() {
   const data = await getHomePageData();
   const testimonials = await getAllTestimonials();
-  const blogPosts = await getRelatedBlogPosts(3);
+  const blogPosts = await getRelatedBlogPosts(4);
 
   return {
     props: {
